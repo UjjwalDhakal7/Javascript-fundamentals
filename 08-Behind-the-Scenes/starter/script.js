@@ -159,3 +159,49 @@ const addExpression = function (a, b) {
 addExpression(2, 5);
 // You can add numerous arguments in a function. Also, arrow function doesn't get this keyword.
 addExpression(4, 7, 8, 9);
+
+// Object References
+
+const sumina = {
+  firstName: 'Sumina',
+  lastName: 'Dhakal',
+  age: 27,
+};
+
+function marryPerson(originalPerson, newLastName) {
+  originalPerson.lastName = newLastName;
+  return originalPerson;
+}
+
+const marriedSumina = marryPerson(sumina, 'Dahal');
+
+// const marriedSumina = sumina;
+// marriedSumina.lastName = 'Dahal';
+console.log('Before:', sumina);
+console.log('After:', marriedSumina);
+
+const sumina2 = {
+  firstName: 'Sumina',
+  lastName: 'Dhakal',
+  age: 27,
+  family: ['Samantha', 'Mrunal'],
+};
+
+// Shallow Copy
+const suminaCopy = { ...sumina2 };
+suminaCopy.lastName = 'Dahal';
+
+// suminaCopy.family.push('John');
+// suminaCopy.family.push('Jessica');
+
+// console.log('Before:', sumina);
+// console.log('After:', suminaCopy);
+
+// Deep Copy/clone
+const suminaClone = structuredClone(sumina); // structuredClone() help create a deep clone directly
+
+suminaCopy.family.push('John');
+suminaCopy.family.push('Jessica');
+
+console.log('original:', sumina);
+console.log('clone:', suminaCopy);
